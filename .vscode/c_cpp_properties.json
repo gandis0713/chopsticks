@@ -1,0 +1,38 @@
+{
+    "env": {
+        "defaultIncludePath": [
+            "${workspaceFolder}/**"
+        ]
+    },
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${env:defaultIncludePath}",
+                "${env:VCPKG_ROOT}/installed/arm64-linux/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++20",
+            "intelliSenseMode": "linux-gcc-arm64",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        },
+        {
+            "name": "Mac-arm64",
+            "includePath": [
+                "${env:defaultIncludePath}",
+                "${env:VCPKG_ROOT}/installed/arm64-osx/include"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "macos-clang-arm64"
+        }
+    ],
+    "version": 4
+}

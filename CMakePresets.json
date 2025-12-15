@@ -1,0 +1,119 @@
+{
+	"version": 3,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 21,
+		"patch": 0
+	},
+	"configurePresets": [
+		{
+			"name": "base",
+			"cacheVariables": {
+				"CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+				"VCPKG_INSTALLED_DIR": "${sourceDir}/externals"
+			},
+			"environment": {
+				"VCPKG_FEATURE_FLAGS": "manifests,binarycaching,registries"
+			},
+			"debug": {
+				"find": false,
+				"output": false,
+				"tryCompile": false
+			}
+		},
+		{
+			"name": "base-arm64-rpi5",
+			"inherits": "base",
+			"cacheVariables": {
+				"VCPKG_TARGET_TRIPLET": "arm64-linux",
+				"CMAKE_OSX_ARCHITECTURES": "arm64"
+			}
+		},
+		{
+			"name": "base-arm64-rpi5-ninja",
+			"inherits": "base-arm64-rpi5",
+			"generator": "Ninja"
+		},
+		{
+			"name": "arm64-rpi5-ninja-debug",
+			"inherits": "base-arm64-rpi5-ninja",
+			"displayName": "arm64-rpi5-ninja-debug",
+			"binaryDir": "${sourceDir}/build/arm64-rpi5-ninja/debug",
+			"installDir": "${sourceDir}/install/arm64-rpi5-ninja/debug",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_FLAGS_DEBUG": "-g"
+			}
+		},
+		{
+			"name": "arm64-rpi5-ninja-release",
+			"inherits": "base-arm64-rpi5-ninja",
+			"displayName": "arm64-rpi5-ninja-release",
+			"binaryDir": "${sourceDir}/build/arm64-rpi5-ninja/release",
+			"installDir": "${sourceDir}/install/arm64-rpi5-ninja/release",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release",
+				"CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG"
+			}
+		},
+		{
+			"name": "arm64-rpi5-ninja-relinfo",
+			"inherits": "base-arm64-rpi5-ninja",
+			"displayName": "arm64-rpi5-ninja-relinfo",
+			"binaryDir": "${sourceDir}/build/arm64-rpi5-ninja/relinfo",
+			"installDir": "${sourceDir}/install/arm64-rpi5-ninja/relinfo",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "RelWithDebInfo",
+				"CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -DNDEBUG"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "arm64-rpi5-ninja-debug",
+			"configurePreset": "arm64-rpi5-ninja-debug",
+			"configuration": "Debug"
+		},
+		{
+			"name": "arm64-rpi5-ninja-release",
+			"configurePreset": "arm64-rpi5-ninja-release",
+			"configuration": "Release"
+		},
+		{
+			"name": "arm64-rpi5-ninja-relinfo",
+			"configurePreset": "arm64-rpi5-ninja-relinfo",
+			"configuration": "RelWithDebInfo"
+		}
+	],
+	"testPresets": [
+		{
+			"name": "base",
+			"configurePreset": "base",
+			"output": {
+				"outputOnFailure": true
+			},
+			"execution": {
+				"noTestsAction": "error",
+				"stopOnFailure": false
+			}
+		},
+		{
+			"name": "arm64-rpi5-ninja-debug",
+			"inherits": "base",
+			"configurePreset": "arm64-rpi5-ninja-debug",
+			"configuration": "Debug"
+		},
+		{
+			"name": "arm64-rpi5-ninja-release",
+			"inherits": "base",
+			"configurePreset": "arm64-rpi5-ninja-release",
+			"configuration": "Release"
+		},
+		{
+			"name": "arm64-rpi5-ninja-relinfo",
+			"inherits": "base",
+			"configurePreset": "arm64-rpi5-ninja-relinfo",
+			"configuration": "RelWithDebInfo"
+		}
+	]
+}

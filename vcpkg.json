@@ -1,0 +1,16 @@
+{
+  "name": "chopsticks",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "gtest",
+    "spdlog",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}

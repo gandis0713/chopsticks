@@ -1,0 +1,20 @@
+{
+    /* Ref
+        https://go.microsoft.com/fwlink/?linkid=830387
+        https://code.visualstudio.com/docs/editor/variables-reference
+    */
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "sample",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/arm64-rpi5-ninja/debug/chopsticks/chopsticks",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "MIMode": "gdb",
+            "targetArchitecture": "arm64",
+            "environment": [],
+        }
+    ]
+}
