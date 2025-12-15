@@ -7,5 +7,7 @@ project(
 )
 
 # Add subdirectories
+# Add subdirectories
+add_subdirectory(third_party/litert/litert)
 add_subdirectory(chopsticks)
 
