@@ -42,6 +42,7 @@
 			"installDir": "${sourceDir}/install/arm64-rpi5-ninja/debug",
 			"cacheVariables": {
 				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_CXX_FLAGS": "-fpermissive",
 				"CMAKE_CXX_FLAGS_DEBUG": "-g"
 			}
 		},
