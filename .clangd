@@ -1,0 +1,4 @@
+CompileFlags:
+  CompilationDatabase: "build/arm64-rpi5-ninja/debug"
+  Add:
+    - -Iexternals/arm64-linux/include

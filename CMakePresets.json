@@ -26,7 +26,8 @@
 			"inherits": "base",
 			"cacheVariables": {
 				"VCPKG_TARGET_TRIPLET": "arm64-linux",
-				"CMAKE_OSX_ARCHITECTURES": "arm64"
+				"CMAKE_OSX_ARCHITECTURES": "arm64",
+				"CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
 			}
 		},
 		{
